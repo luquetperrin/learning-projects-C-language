@@ -3,25 +3,43 @@
 int main(void)
 {
     int a[10];
-    int even = 0;
-    int odd = 0;
+    int even[10], odd[10]; // Arrays to store even and odd numbers
+    int evenCount = 0, oddCount = 0;
+    // Input phase
+    printf("Enter 10 integers:\n");
     for (int i = 0; i < 10; i++)
     {
-        printf("Enter element %d of the array named 'a'\n", i+1);
+        printf("Enter element %d: ", i + 1);
         scanf("%d", &a[i]);
     }
+    // Separating even and odd numbers
     for (int i = 0; i < 10; i++)
     {
         if (a[i] % 2 == 0)
         {
-            even++;
+            even[evenCount] = a[i];
+            evenCount++;
         }
         else
         {
-            odd++;
+            odd[oddCount] = a[i];
+            oddCount++;
         }
     }
-    printf("even elemnts are: %d\n", even);
-    printf("odd elements are: %d\n", odd);
-    return (0);
+    // Printing even numbers
+    printf("Even elements: ");
+    for (int i = 0; i < evenCount; i++)
+    {
+        printf("%d ", even[i]);
+    }
+    printf("\n");
+
+    // Printing odd numbers
+    printf("Odd elements: ");
+    for (int i = 0; i < oddCount; i++)
+    {
+        printf("%d ", odd[i]);
+    }
+    printf("\n");
+    return 0;
 }
